@@ -1,0 +1,24 @@
+{
+  "name": "restaurant-ordering",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client/*",
+    "server",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:customer\" \"npm run dev:staff\"",
+    "dev:server": "cd server && npm run dev",
+    "dev:customer": "cd client/customer-app && npm run dev",
+    "dev:staff": "cd client/staff-app && npm run dev",
+    "build": "npm run build:server && npm run build:customer && npm run build:staff",
+    "build:server": "cd server && npm run build",
+    "build:customer": "cd client/customer-app && npm run build",
+    "build:staff": "cd client/staff-app && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "^5.3.3"
+  }
+} 
